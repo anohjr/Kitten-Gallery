@@ -1,16 +1,21 @@
-import './App.css'
-
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
 // COMPONENTS
-import CatFeed from './components/catFeed'
+import NavBar from "./components/NavBar";
+// PAGES
+import Gallery from "./pages/Gallery";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <>
-      <div id='content_container'>
-        <CatFeed/>
-      </div>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/gallery" element={<Gallery />} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
