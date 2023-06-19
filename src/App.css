@@ -8,13 +8,14 @@
   margin: 0 auto;
   text-align: center;
   font-family: satoshi-regular;
+  color: black;
 }
 
 /* NAVIGATION */
 
 #cat_logo {
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   margin-bottom: 2em;
   padding-left: 3em;
 }
@@ -57,8 +58,7 @@
 /* GALLERY --> */
 
 #cat_feed_container {
-  padding-right: 45px; padding-left: 45px;
-  padding-top: 30vh;
+  margin-top: 10vh;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -82,7 +82,17 @@
   scale: 1.05;
 }
 
+/* SELECT BREED */
 
-#breed_label {
- color: black;
+#select_container {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin-top: 8%;
+  margin-left: 5%;
+}
+
+#select_container p {
+  margin-bottom: 0.5em;
+  text-align: start;
 }

@@ -1,11 +1,33 @@
-function CatFilter() {
+/* eslint-disable react/prop-types */
+import Select from "react-select";
+import makeAnimated from "react-select/animated";
+
+const animatedComponents = makeAnimated();
+
+let selectBreedOptions = [
+  { value: "", label: "None" },
+  { value: "abys", label: "Abyssinian" },
+  { value: "aege", label: "Aegean" },
+  { value: "abob", label: "American Bobtail" },
+  { value: "acur", label: "American Curl" },
+  { value: "asho", label: "American Shorthair" },
+  { value: "awir", label: "American Wirehair" },
+  { value: "amau", label: "Arabian Mau" },
+  { value: "amis", label: "Australian Mist" },
+];
+
+function CatFilter({ breed, setBreed }) {
   return (
-    <>
-      <label id="breed_label" htmlFor="breed_select">Choose breeds</label>
-      <select name="breeds" id="breed_select">
-        <option value="">None</option>
-      </select>
-    </>
+    <div id="select_container">
+      <p>Choose breed :</p>
+      <Select
+        options={selectBreedOptions}
+        onChange={setBreed}
+        components={animatedComponents}
+        isOptionDisabled={() => breed.length >= 3}
+        isMulti
+      />
+    </div>
   );
 }
 

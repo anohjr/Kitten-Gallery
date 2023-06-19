@@ -1,14 +1,15 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-key */
 import { useEffect, useState } from "react";
 const catApiKey = import.meta.env.VITE_APP_CAT_API_TOKEN;
 import CatImage from "./catImage";
 
-function CatFeed() {
+function CatFeed({ breed }) {
   const [catData, setCatData] = useState([]);
   const [catPageData, setCatPageData] = useState(0);
   useEffect(() => {
     fetch(
-      `https://api.thecatapi.com/v1/images/search?limit=20&page=${catPageData}`,
+      `https://api.thecatapi.com/v1/images/search?limit=20&breed_ids=${breed[0].value}`,
       {
         method: "GET",
         headers: {
@@ -19,14 +20,15 @@ function CatFeed() {
       .then((response) => response.json())
       .then((data) => setCatData(data))
       .catch((error) => console.log(error));
-  }, []);
-  console.log("data :", catData);
+  }, [breed]);
+  // console.log("data :", catData);
+  console.log("breed:", breed);
 
   function getCatImages() {
     return (
       <>
-        {catData.map((e) => (
-          <CatImage elementCat={e} />
+        {catData.map((e, i) => (
+          <CatImage elementCat={e} key={i} />
         ))}
       </>
     );
