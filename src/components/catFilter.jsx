@@ -26,7 +26,7 @@ function CatFilter({ breed, setBreed, type, setType }) {
     <>
       <div id="all_select_container">
         <div id="select_breed_container">
-          <p>Choose breed :</p>
+          <p>Sort by breed :</p>
           <Select
             options={selectBreedOptions}
             onChange={setBreed}
