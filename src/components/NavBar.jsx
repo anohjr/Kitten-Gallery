@@ -12,6 +12,9 @@ function NavBar() {
         <li>
           <Link to="gallery">Gallery</Link>
         </li>
+        <li>
+            <Link to="favorites">Favorites</Link>
+        </li>
       </ul>
     </nav>
   );

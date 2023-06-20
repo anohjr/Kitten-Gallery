@@ -4,7 +4,7 @@ import makeAnimated from "react-select/animated";
 
 const animatedComponents = makeAnimated();
 
-let selectBreedOptions = [
+const selectBreedOptions = [
   { value: "", label: "None" },
   { value: "abys", label: "Abyssinian" },
   { value: "aege", label: "Aegean" },
@@ -16,19 +16,32 @@ let selectBreedOptions = [
   { value: "amis", label: "Australian Mist" },
 ];
 
-function CatFilter({ breed, setBreed }) {
+const selectTypeOptions = [
+  { value: "gif", label: "GIF" },
+  { value: "jpg,png", label: "IMG" },
+];
+
+function CatFilter({ breed, setBreed, type, setType }) {
   return (
-    <div id="select_container">
-      <p>Choose breed :</p>
-      <Select
-        options={selectBreedOptions}
-        onChange={setBreed}
-        components={animatedComponents}
-        placeholder='Select... (3 max.)'
-        isOptionDisabled={() => breed.length >= 3}
-        isMulti
-      />
-    </div>
+    <>
+      <div id="all_select_container">
+        <div id="select_breed_container">
+          <p>Choose breed :</p>
+          <Select
+            options={selectBreedOptions}
+            onChange={setBreed}
+            components={animatedComponents}
+            placeholder="Select... (3 max.)"
+            isOptionDisabled={() => breed.length >= 3}
+            isMulti
+          />
+        </div>
+        <div id="select_type_container">
+            <p>Type :</p>
+          <Select options={selectTypeOptions} onChange={setType} defaultValue={{ value: "jpg,png", label: "IMG" }} />
+        </div>
+      </div>
+    </>
   );
 }
 

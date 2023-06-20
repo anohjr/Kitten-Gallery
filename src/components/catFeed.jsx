@@ -4,21 +4,20 @@ import { useEffect, useState } from "react";
 const catApiKey = import.meta.env.VITE_APP_CAT_API_TOKEN;
 import CatImage from "./catImage";
 
-function CatFeed({ breed }) {
+function CatFeed({ breed, type }) {
   const [catData, setCatData] = useState([]);
   const [catPageData, setCatPageData] = useState(0);
 
   function getBreedFilter() {
     if (breed.length === 0) return "";
-    if (breed.length === 1) return breed[0].value;
-    if (breed.length === 2) return `${breed[0].value},${breed[1].value}`;
-    if (breed.length === 3)
-      return `${breed[0].value},${breed[1].value},${breed[2].value}`;
+    else return breed.map((e) => e.value).join(",");
   }
 
   useEffect(() => {
     fetch(
-      `https://api.thecatapi.com/v1/images/search?breed_ids=${getBreedFilter()}&limit=20`,
+      `https://api.thecatapi.com/v1/images/search?breed_ids=${getBreedFilter()}&order=RANDOM&mime_types=${
+        type.value
+      }&limit=20`,
       {
         method: "GET",
         headers: {
@@ -29,9 +28,10 @@ function CatFeed({ breed }) {
       .then((response) => response.json())
       .then((data) => setCatData(data))
       .catch((error) => console.log(error));
-  }, [breed]);
+  }, [breed, type]);
   // console.log("data :", catData);
-  console.log("breed:", breed);
+  // console.log("breed:", breed);
+  console.log("type :", type.value);
 
   function getCatImages() {
     return (
