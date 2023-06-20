@@ -1,13 +1,14 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-key */
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 const catApiKey = import.meta.env.VITE_APP_CAT_API_TOKEN;
 import CatImage from "./catImage";
 import PawsLoader from "./pawsLoader";
 
 function CatFeed({ breed, type }) {
+  const listInnerRef = useRef();
   const [catData, setCatData] = useState([]);
-  const [catPageData, setCatPageData] = useState(0);
+  const [catPage, setCatPage] = useState(1);
   const [fetching, setFetching] = useState(true);
 
   function getBreedFilter() {
@@ -16,11 +17,11 @@ function CatFeed({ breed, type }) {
   }
 
   useEffect(() => {
-    setFetching(true)
+    setFetching(true);
     fetch(
-      `https://api.thecatapi.com/v1/images/search?breed_ids=${getBreedFilter()}&order=RANDOM&mime_types=${
+      `https://api.thecatapi.com/v1/images/search?breed_ids=${getBreedFilter()}&order=ASC&mime_types=${
         type.value
-      }&limit=25`,
+      }&limit=25&page=${catPage}`,
       {
         method: "GET",
         headers: {
@@ -32,11 +33,21 @@ function CatFeed({ breed, type }) {
       .then((data) => setCatData(data))
       .finally(() => setFetching(false))
       .catch((error) => console.log(error));
-  }, [breed, type]);
+  }, [breed, type, catPage]);
   // console.log("data :", catData);
   // console.log("breed:", breed);
-  console.log("type :", type.value);
-  console.log("fetching:", fetching)
+  // console.log("type :", type.value);
+  // console.log("fetching:", fetching)
+  console.log("cat page :", catPage);
+
+  const onScroll = () => {
+    if (listInnerRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
+      if (scrollTop + clientHeight === scrollHeight) {
+        setCatPage(catPage + 1);
+      }
+    }
+  };
 
   function getCatImages() {
     return (
@@ -48,13 +59,11 @@ function CatFeed({ breed, type }) {
     );
   }
 
-  function onScrollCatImg() {}
-  if (fetching)
-    return <PawsLoader />
+  if (fetching) return <PawsLoader />;
   return (
-      <div id="cat_feed_container" onScroll={onScrollCatImg}>
-        {getCatImages()}
-      </div>
+    <div id="cat_feed_container" onScroll={() => onScroll()} ref={listInnerRef}>
+      {getCatImages()}
+    </div>
   );
 }
 
