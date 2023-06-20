@@ -8,7 +8,7 @@ function Gallery() {
   return (
     <div id="content_container">
       <CatFilter breed={breed} setBreed={setBreed} />
-      <CatFeed breed={breed} />
+      <CatFeed breed={breed} setBreed={setBreed} />
     </div>
   );
 }

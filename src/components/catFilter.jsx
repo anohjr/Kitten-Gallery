@@ -24,6 +24,7 @@ function CatFilter({ breed, setBreed }) {
         options={selectBreedOptions}
         onChange={setBreed}
         components={animatedComponents}
+        placeholder='Select... (3 max.)'
         isOptionDisabled={() => breed.length >= 3}
         isMulti
       />
