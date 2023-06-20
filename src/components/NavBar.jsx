@@ -1,19 +1,43 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import catLogo from "../assets/img/cat-logo.png";
 
+
 function NavBar() {
+let location = useLocation();
+
   return (
     <nav id="nav_bar">
       <img id="cat_logo" src={catLogo} />
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link
+            to="/"
+            className={
+              location.pathname == "/" ? "current_page" : "default_page"
+            }
+          >
+            Home
+          </Link>
         </li>
         <li>
-          <Link to="gallery">Gallery</Link>
+          <Link
+            to="gallery"
+            className={
+              location.pathname == "/gallery" ? "current_page" : "default_page"
+            }
+          >
+            Gallery
+          </Link>
         </li>
         <li>
-            <Link to="favorites">Favorites</Link>
+          <Link
+            to="favorites"
+            className={
+              location.pathname == "/favorites" ? "current_page" : "default_page"
+            }
+          >
+            Favorites
+          </Link>
         </li>
       </ul>
     </nav>

@@ -20,7 +20,7 @@ function CatFeed({ breed, type }) {
     fetch(
       `https://api.thecatapi.com/v1/images/search?breed_ids=${getBreedFilter()}&order=RANDOM&mime_types=${
         type.value
-      }&limit=20`,
+      }&limit=25`,
       {
         method: "GET",
         headers: {

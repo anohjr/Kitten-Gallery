@@ -21,7 +21,7 @@ const selectTypeOptions = [
   { value: "jpg,png", label: "IMG" },
 ];
 
-function CatFilter({ breed, setBreed, type, setType }) {
+function CatFilter({ breed, setBreed, setType }) {
   return (
     <>
       <div id="all_select_container">
