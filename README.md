@@ -8,3 +8,5 @@ commands :
 npm install @reduxjs/toolkit
 npm install redux react-redux
 npm install react-router-dom
+npm install node-sass
+npm install react-select

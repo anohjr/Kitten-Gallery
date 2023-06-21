@@ -1,4 +1,4 @@
-import DashboardLine from "../dashboardLine";
+import DashboardLine from "./dashboardLine";
 import { useEffect, useState } from "react";
 import "./Dashboard.scss";
 
