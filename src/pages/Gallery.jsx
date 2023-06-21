@@ -14,7 +14,7 @@ function Gallery() {
         type={type}
         setType={setType}
       />
-      <CatFeed breed={breed} setBreed={setBreed} type={type} />
+      <CatFeed breed={breed} type={type} />
     </div>
   );
 }

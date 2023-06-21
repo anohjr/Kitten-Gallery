@@ -3,6 +3,11 @@
     src: url(./fonts/Satoshi-Regular.otf);
 }
 
+@font-face {
+    font-family: satoshi-medium;
+    src: url(./fonts/Satoshi-Medium.otf);
+}
+
 #root {
     max-width: 1280px;
     margin: 0 auto;

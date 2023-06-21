@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-key */
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 const catApiKey = import.meta.env.VITE_APP_CAT_API_TOKEN;
 import "./CatFeed.scss";
 import CatImage from "../cat_image/CatImage";

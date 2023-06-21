@@ -1,12 +1,15 @@
 #counter_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin-top: 10em;
     margin-left: 20%;
-    height: 40vh;
-    width: 50%;
-    border: 2px solid pink;
+    height: 150px;
+    width: 250px;
+    border: 2px solid pink; border-radius: 50%;
 
     #counter_number {
-        margin-top: 5em;
+    font-family: satoshi-medium;
     }
     
     #arrow_container {
@@ -16,7 +19,16 @@
         gap: 40px;
 
         #button_L, #button_R {
+            background-color: pink;
+            width: 30px; height: 25px;
+            border-radius: 20%;
+            border: none;
+            transition: 200ms;
             cursor: pointer;
+
+            &:hover {
+                transform: scale(1.05);
+            }
         }
     }    
 }
