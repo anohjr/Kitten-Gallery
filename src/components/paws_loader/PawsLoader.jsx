@@ -1,3 +1,5 @@
+import "./PawsLoader.scss"
+
 function PawsLoader() {
   return (
     <>

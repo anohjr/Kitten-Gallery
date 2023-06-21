@@ -7,3 +7,4 @@ Learn to use Redux for state management.
 commands : 
 npm install @reduxjs/toolkit
 npm install redux react-redux
+npm install react-router-dom

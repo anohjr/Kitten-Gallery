@@ -1,0 +1,13 @@
+.cat_img {
+    width: 100%;
+    height: 100%;
+    border-radius: 7%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: 200ms;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+}
+  

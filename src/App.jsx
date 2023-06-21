@@ -1,11 +1,12 @@
 import "./App.scss";
 import { Routes, Route } from "react-router-dom";
 // COMPONENTS
-import NavBar from "./components/NavBar";
+import NavBar from "./components/nav_bar/NavBar";
 // PAGES
 import Gallery from "./pages/Gallery";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
+import SandBox from "./pages/SandBox";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/favorites" element={<Favorites />} />
+        <Route path="/Sandbox" element={<SandBox />} />
       </Routes>
     </>
   );

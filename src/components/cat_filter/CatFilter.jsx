@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
+import "./CatFilter.scss";
 
 const animatedComponents = makeAnimated();
 

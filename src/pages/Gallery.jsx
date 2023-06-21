@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import CatFeed from "../components/catFeed";
-import CatFilter from "../components/catFilter";
+import CatFeed from "../components/cat_feed/CatFeed";
+import CatFilter from "../components/cat_filter/CatFilter";
 
 function Gallery() {
   const [breed, setBreed] = useState([{ value: "", label: "None" }]);

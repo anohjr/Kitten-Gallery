@@ -1,0 +1,23 @@
+#counter_container {
+    margin-top: 10em;
+    margin-left: 20%;
+    height: 40vh;
+    width: 50%;
+    border: 2px solid pink;
+
+    #counter_number {
+        margin-top: 5em;
+    }
+    
+    #arrow_container {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+
+        #button_L, #button_R {
+            cursor: pointer;
+        }
+    }    
+}
+

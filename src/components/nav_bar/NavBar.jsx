@@ -1,9 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
-import catLogo from "../assets/img/cat-logo.png";
-
+import catLogo from "../../assets/img/cat-logo.png";
+import "./NavBar.scss";
 
 function NavBar() {
-let location = useLocation();
+  let location = useLocation();
 
   return (
     <nav id="nav_bar">
@@ -33,10 +33,22 @@ let location = useLocation();
           <Link
             to="favorites"
             className={
-              location.pathname == "/favorites" ? "current_page" : "default_page"
+              location.pathname == "/favorites"
+                ? "current_page"
+                : "default_page"
             }
           >
             Favorites
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="sandbox"
+            className={
+              location.pathname == "/sandbox" ? "current_page" : "default_page"
+            }
+          >
+            SandBox
           </Link>
         </li>
       </ul>

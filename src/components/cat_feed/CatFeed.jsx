@@ -2,13 +2,14 @@
 /* eslint-disable react/jsx-key */
 import { useEffect, useState, useRef } from "react";
 const catApiKey = import.meta.env.VITE_APP_CAT_API_TOKEN;
-import CatImage from "./catImage";
-import PawsLoader from "./pawsLoader";
+import "./CatFeed.scss";
+import CatImage from "../cat_image/CatImage";
+import PawsLoader from "../paws_loader/PawsLoader";
 
 function CatFeed({ breed, type }) {
-  const listInnerRef = useRef();
+  // const listInnerRef = useRef();
   const [catData, setCatData] = useState([]);
-  const [catPage, setCatPage] = useState(1);
+  // const [catPage, setCatPage] = useState(1);
   const [fetching, setFetching] = useState(true);
 
   function getBreedFilter() {
@@ -19,9 +20,9 @@ function CatFeed({ breed, type }) {
   useEffect(() => {
     setFetching(true);
     fetch(
-      `https://api.thecatapi.com/v1/images/search?breed_ids=${getBreedFilter()}&order=ASC&mime_types=${
+      `https://api.thecatapi.com/v1/images/search?breed_ids=${getBreedFilter()}&order=RANDOM&mime_types=${
         type.value
-      }&limit=25&page=${catPage}`,
+      }&limit=25`,
       {
         method: "GET",
         headers: {
@@ -33,21 +34,21 @@ function CatFeed({ breed, type }) {
       .then((data) => setCatData(data))
       .finally(() => setFetching(false))
       .catch((error) => console.log(error));
-  }, [breed, type, catPage]);
+  }, [breed, type]);
   // console.log("data :", catData);
   // console.log("breed:", breed);
   // console.log("type :", type.value);
   // console.log("fetching:", fetching)
-  console.log("cat page :", catPage);
+  // console.log("cat page :", catPage);
 
-  const onScroll = () => {
-    if (listInnerRef.current) {
-      const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
-      if (scrollTop + clientHeight === scrollHeight) {
-        setCatPage(catPage + 1);
-      }
-    }
-  };
+  // const onScroll = () => {
+  //   if (listInnerRef.current) {
+  //     const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
+  //     if (scrollTop + clientHeight === scrollHeight) {
+  //       setCatPage(catPage + 1);
+  //     }
+  //   }
+  // };
 
   function getCatImages() {
     return (
@@ -60,11 +61,7 @@ function CatFeed({ breed, type }) {
   }
 
   if (fetching) return <PawsLoader />;
-  return (
-    <div id="cat_feed_container" onScroll={() => onScroll()} ref={listInnerRef}>
-      {getCatImages()}
-    </div>
-  );
+  return <div id="cat_feed_container">{getCatImages()}</div>;
 }
 
 export default CatFeed;

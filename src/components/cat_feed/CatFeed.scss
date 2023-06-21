@@ -1,0 +1,12 @@
+#cat_feed_container {
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5em;
+
+    div {
+        width: 200px; height: 200px;
+    }
+}
+
