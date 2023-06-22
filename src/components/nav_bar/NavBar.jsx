@@ -31,6 +31,16 @@ function NavBar() {
         </li>
         <li>
           <Link
+            to="breeds"
+            className={
+              location.pathname == "/breeds" ? "current_page" : "default_page"
+            }
+          >
+            Breeds
+          </Link>
+        </li>
+        <li>
+          <Link
             to="favorites"
             className={
               location.pathname == "/favorites"

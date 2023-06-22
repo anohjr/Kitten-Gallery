@@ -6,7 +6,12 @@ import "./CatFeed.scss";
 import CatImage from "../cat_image/CatImage";
 import PawsLoader from "../paws_loader/PawsLoader";
 
-function CatFeed({ breed, type }) {
+import { useSelector } from "react-redux";
+import { selectBreed } from "../cat_filter/catFilterSlice";
+
+function CatFeed({ type }) {
+  const breed = useSelector(selectBreed);
+
   // const listInnerRef = useRef();
   const [catData, setCatData] = useState([]);
   // const [catPage, setCatPage] = useState(1);

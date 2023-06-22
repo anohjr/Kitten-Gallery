@@ -1,0 +1,33 @@
+table {
+    
+    
+    thead {
+        background-color: #0000009f;
+        color: #fff;
+    }    
+
+    td {
+        border: 2px solid #d3114512;
+        font-size: 15px;
+        width: auto;
+        
+        
+        img {
+            object-fit: cover;
+            height: 150px;
+            width: 170px;
+            transition: 200ms;
+
+            &:hover {
+                -webkit-filter: brightness(.5);
+                filter: brightness(.5);
+            }
+        }
+    }
+}
+
+
+
+
+
+

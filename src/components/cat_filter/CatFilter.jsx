@@ -3,6 +3,9 @@ import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import "./CatFilter.scss";
 
+import { useSelector, useDispatch } from "react-redux";
+import { selectBreed, setBreed } from "../cat_filter/catFilterSlice";
+
 const animatedComponents = makeAnimated();
 
 const selectBreedOptions = [
@@ -22,8 +25,10 @@ const selectTypeOptions = [
   { value: "jpg,png", label: "IMG" },
 ];
 
-function CatFilter({ breed, setBreed, setType }) {
-  
+function CatFilter({ setType }) {
+  const breed = useSelector(selectBreed);
+  const dispatch = useDispatch();
+  console.log(breed);
   return (
     <>
       <div id="all_select_container">
@@ -31,7 +36,7 @@ function CatFilter({ breed, setBreed, setType }) {
           <p>Sort by breed :</p>
           <Select
             options={selectBreedOptions}
-            onChange={setBreed}
+            onChange={(selectedValues) => {dispatch(setBreed(selectedValues))}}
             components={animatedComponents}
             placeholder="Select... (3 max.)"
             isOptionDisabled={() => breed.length >= 3}
@@ -39,8 +44,12 @@ function CatFilter({ breed, setBreed, setType }) {
           />
         </div>
         <div id="select_type_container">
-            <p>Type :</p>
-          <Select options={selectTypeOptions} onChange={setType} defaultValue={{ value: "jpg,png", label: "IMG" }} />
+          <p>Type :</p>
+          <Select
+            options={selectTypeOptions}
+            onChange={setType}
+            defaultValue={{ value: "jpg,png", label: "IMG" }}
+          />
         </div>
       </div>
     </>
