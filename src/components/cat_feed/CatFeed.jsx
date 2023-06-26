@@ -40,20 +40,6 @@ function CatFeed({ type }) {
       .finally(() => setFetching(false))
       .catch((error) => console.log(error));
   }, [breed, type]);
-  // console.log("data :", catData);
-  // console.log("breed:", breed);
-  // console.log("type :", type.value);
-  // console.log("fetching:", fetching)
-  // console.log("cat page :", catPage);
-
-  // const onScroll = () => {
-  //   if (listInnerRef.current) {
-  //     const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
-  //     if (scrollTop + clientHeight === scrollHeight) {
-  //       setCatPage(catPage + 1);
-  //     }
-  //   }
-  // };
 
   function getCatImages() {
     return (

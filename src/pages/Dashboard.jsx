@@ -1,6 +1,6 @@
 import BreedsDashboard from "../components/breeds_dashboard/BreedsDashboard";
 
-function Breeds() {
+function DashboardPage() {
   return (
     <div id="content_container">
       <BreedsDashboard />
@@ -8,4 +8,4 @@ function Breeds() {
   );
 }
 
-export default Breeds;
+export default DashboardPage;

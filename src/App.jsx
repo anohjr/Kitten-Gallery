@@ -4,9 +4,8 @@ import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/nav_bar/NavBar";
 // PAGES
 import Gallery from "./pages/Gallery";
-import Breeds from "./pages/Breeds";
+import DashboardPage from "./pages/Dashboard";
 import Home from "./pages/Home";
-import Favorites from "./pages/Favorites";
 import SandBox from "./pages/SandBox";
 
 function App() {
@@ -16,8 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/breeds" element={<Breeds />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/Sandbox" element={<SandBox />} />
       </Routes>
     </>

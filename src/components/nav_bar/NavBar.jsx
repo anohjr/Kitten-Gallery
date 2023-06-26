@@ -31,24 +31,12 @@ function NavBar() {
         </li>
         <li>
           <Link
-            to="breeds"
+            to="dashboard"
             className={
-              location.pathname == "/breeds" ? "current_page" : "default_page"
+              location.pathname == "/dashboard" ? "current_page" : "default_page"
             }
           >
-            Breeds
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="favorites"
-            className={
-              location.pathname == "/favorites"
-                ? "current_page"
-                : "default_page"
-            }
-          >
-            Favorites
+            Dashboard
           </Link>
         </li>
         <li>
